@@ -2,24 +2,31 @@
 #include <stdlib.h>
 #include "Arvores.h"
 
+int Id;
+char opcao02[30];
+
+
 int main(void)
 {
-    int option;
+    int opcao;
+
 
     printf("\n\t==========================");
     printf("\n\t|  O que deseja fazer ?  |");
     printf("\n\t==========================\n");
 
     printf("\t1. Adicionar\t2. Alterar\n\t3. Excluir\t\t4. Procurar\n\t5. Relatório\t6. Sair\n");
-    scanf("%d", &option);
+    fgets(opcao02, 30, stdin);
+    sscanf(opcao02, "%d", &opcao);
 
-    switch (option)
+    switch (opcao)
     {
         case 1:
-
+            Id = adicionar(Id);
             break;
 
         case 2:
+            PrintAll(Id);
             break;
 
         case 3:
