@@ -20,6 +20,7 @@ int posicao;
 
 int adicionar(int Id)
 {
+    expand();
     printf("CPF:");
     fgets(Usuario[Id].CPF, 30, stdin);
     Usuario[Id].CPF[strcspn(Usuario[Id].CPF,"\n")] = '\0';
@@ -60,7 +61,6 @@ int adicionar(int Id)
     Id++;
     tamanho = Id;
     posicao = Id;
-    expand();
     return Id;
     return 0;
 }
@@ -91,6 +91,7 @@ void expand() {
 int printarEscolha(int Id)
 {
     if(strcmp(Usuario[Id].CPF, " ") != 0)
+
     {
         printf("\n");
         printf("Nome: %s\n", Usuario[Id].nome);
