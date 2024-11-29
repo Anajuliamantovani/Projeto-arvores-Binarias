@@ -3,20 +3,11 @@
 #include <string.h>
 #include "Arvores.h"
 
-struct Pessoa
-{
-    char nome[80];
-    char endereço[100];
-    char CPF[30];
-    char telefone[30];
-    char email[80];
-};
-
-typedef struct Pessoa usuario;
 usuario *Usuario = NULL;
 
 int tamanho;
 int posicao;
+int NumRegistro;
 
 int adicionar(int Id)
 {
@@ -24,6 +15,7 @@ int adicionar(int Id)
     printf("CPF:");
     fgets(Usuario[Id].CPF, 30, stdin);
     Usuario[Id].CPF[strcspn(Usuario[Id].CPF,"\n")] = '\0';
+
 
     if(Id != 0)
     {
@@ -58,6 +50,7 @@ int adicionar(int Id)
     fgets(Usuario[Id].email, 100, stdin);
     Usuario[Id].email[strcspn(Usuario[Id].email,"\n")] = '\0';
 
+    NumRegistro++;
     Id++;
     tamanho = Id;
     posicao = Id;
@@ -65,15 +58,15 @@ int adicionar(int Id)
     return 0;
 }
 
-
-void expand() {
-    usuario *temp;
+void expand() // funcao para criar um novo espaco na memoria sem que
+{
+    usuario *temp; // o ponteiro temp do tipo usuario, esta dizendo para  aumentar o tamanho do vetor, assim tendo mais espaco para cadastrar usuarios
 
     printf("Expandindo...\n");
 
     tamanho = tamanho + 5;
 
-    temp = malloc(tamanho * sizeof(usuario));
+    temp = malloc(tamanho * sizeof(usuario)); // aloca memoria para o novo vetor com o novo tamanho
     if(!temp) {
         printf("Erro ao alocar memoria\n");
         exit(EXIT_FAILURE);
@@ -86,6 +79,36 @@ void expand() {
 
     free(Usuario);
     Usuario = temp;
+}
+
+void Alterar()
+{
+
+}
+
+void Escolher()
+{
+
+}
+
+void Excluir()
+{
+
+}
+
+void Procurar()
+{
+
+}
+
+void Relatorio()
+{
+
+}
+
+void Sair ()
+{
+
 }
 
 int printarEscolha(int Id)
