@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,6 +17,9 @@ extern struct noArvore *Aanterior;
 extern struct noArvore *Aproximo;
 
 
-struct noArvore *localizar(int CPF, struct noArvore *Inicio);
+struct noArvore *ABlocalizar(int CPF, struct noArvore *Inicio);
 void ABadicionar(struct noArvore *Aux, struct noArvore *Inicio);
 struct noArvore *ABnovoNo(int CPF, int NumRegistro);
+void inicializar();
+
+

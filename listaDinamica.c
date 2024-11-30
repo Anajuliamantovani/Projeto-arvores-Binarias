@@ -18,28 +18,13 @@ int adicionar(int Id)
     fgets(Usuario[Id].CPF, 30, stdin);
     Usuario[Id].CPF[strcspn(Usuario[Id].CPF,"\n")] = '\0';
 
-    /*
-    if(Id != 0)
-    {
-        for (int i = 0; i < Id ; i++)
-        {
-            if(i != Id)
-            {
-                if(strcmp(Usuario[i].CPF, Usuario[Id].CPF) == 0)
-                {
-                    printf("CPF ja Cadastrado.");
-                    return Id;
-                }
-            }
-        }
-    }
-    */
-
     int tempCpf;
 
     sscanf(Usuario[Id].CPF, "%d", &tempCpf);
 
-    if(localizar(tempCpf, Ainicio) == NULL)
+    Aaux = ABlocalizar(tempCpf, Ainicio);
+
+    if(Aaux == NULL)
     {
         printf("CPF nao encontrado!\n");
     }
@@ -48,6 +33,7 @@ int adicionar(int Id)
         printf("CPF ja cadastrado \n");
         return Id;
     }
+
 
     printf("Preencha as informacoes a seguir:\n");
 
@@ -68,10 +54,10 @@ int adicionar(int Id)
     Usuario[Id].email[strcspn(Usuario[Id].email,"\n")] = '\0';
 
 
-    Aaux = ABnovoNo(tempCpf, NumRegistro);
-    ABadicionar(Aaux,Ainicio);
+    //Aaux = ABnovoNo(tempCpf, NumRegistro);
+    //ABadicionar(Aaux,Ainicio);
 
-    LLadicionar(Usuario[Id].nome, NumRegistro);
+    //LLadicionar(Usuario[Id].nome, NumRegistro);
 
     NumRegistro++;
     Id++;

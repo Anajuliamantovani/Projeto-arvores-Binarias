@@ -20,6 +20,8 @@ int main(void)
     fgets(opcao02, 30, stdin);
     sscanf(opcao02, "%d", &opcao);
 
+    inicializar();
+
     switch (opcao)
     {
         case 1:
@@ -27,7 +29,6 @@ int main(void)
             break;
 
         case 2:
-            imprimir();
             //PrintAll(Id);
             break;
 
@@ -49,14 +50,3 @@ int main(void)
 }
 
 
-void imprimir() {
-    char nome[80];
-    if(inicio != NULL) {
-        paraInicio();
-        while(corrente(&nome)) {
-            printf("%s",nome);
-            paraProximo();
-        }
-        printf("\n");
-    }
-}

@@ -1,9 +1,21 @@
+
 //
 // Created by JoaoV on 30/11/2024.
 //
 #include "listaLigada.h"
 #include "listaDinamica.h"
 #include "arvoreBinaria.h"
+
+struct noArvore *Ainicio;
+struct noArvore *Aaux;
+struct noArvore *Aanterior;
+struct noArvore *Aproximo;
+
+
+void inicializar()
+{
+    Ainicio = NULL;
+}
 
 struct noArvore *ABnovoNo(int CPF, int NumRegistro)
 {
@@ -22,10 +34,10 @@ struct noArvore *ABnovoNo(int CPF, int NumRegistro)
 
 void ABadicionar(struct noArvore *Aux, struct noArvore *Inicio)
 {
-    if(inicio == NULL)
+    if(Inicio == NULL)
     {
         printf("Adicionando %d no inicio\n",Aux->CPF);
-        inicio = Aux;
+        Inicio = Aux;
     }
     else
     {
@@ -60,8 +72,9 @@ void ABadicionar(struct noArvore *Aux, struct noArvore *Inicio)
     }
 }
 
-struct noArvore *localizar(int CPF, struct noArvore *Inicio)
+struct noArvore *ABlocalizar(int CPF, struct noArvore *Inicio)
 {
+    printf('teste');
     if(Inicio->CPF == CPF)
     {
         //printf("CPF ja cadastrado %d\n", CPF);
@@ -73,9 +86,9 @@ struct noArvore *localizar(int CPF, struct noArvore *Inicio)
             // procurar na direita
             if(Inicio->direita != NULL)
             {
-                anterior = Inicio;
+                Aanterior = Inicio;
                 //printf("Indo para a direita de %d\n", Inicio->CPF);
-                return localizar(CPF, Inicio->direita);
+                return ABlocalizar(CPF, Inicio->direita);
             }
             else
             {
@@ -88,9 +101,9 @@ struct noArvore *localizar(int CPF, struct noArvore *Inicio)
             // procurar na esquerda
             if(Inicio->esquerda != NULL)
             {
-                anterior = Inicio;
+                Aanterior = Inicio;
                 //printf("Indo para a esquerda de %d\n", Inicio->CPF);
-                return localizar(CPF, Inicio->esquerda);
+                return ABlocalizar(CPF, Inicio->esquerda);
             }
             else
             {
@@ -100,3 +113,4 @@ struct noArvore *localizar(int CPF, struct noArvore *Inicio)
         }
     }
 }
+

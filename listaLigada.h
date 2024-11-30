@@ -1,5 +1,5 @@
 #include <stdbool.h>
-
+/*
 struct noLigada
 {
     char nome [80];
@@ -20,7 +20,4 @@ void adicionarNoInicio();
 void adicionarNoFinal();
 void adicionarNoMeio();
 void paraInicio();
-
-bool corrente(char *nome[80]);
-bool paraProximo();
-void imprimir();
+*/
