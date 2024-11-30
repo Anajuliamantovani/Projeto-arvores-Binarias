@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Arvores.h"
+#include "listaDinamica.h"
+#include "listaLigada.h"
+#include "arvoreBinaria.h"
 
 int Id;
 char opcao02[30];

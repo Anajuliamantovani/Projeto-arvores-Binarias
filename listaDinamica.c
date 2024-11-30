@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Arvores.h"
+#include "listaDinamica.h"
+#include "listaLigada.h"
+#include "arvoreBinaria.h"
 
 usuario *Usuario = NULL;
 
@@ -16,7 +18,7 @@ int adicionar(int Id)
     fgets(Usuario[Id].CPF, 30, stdin);
     Usuario[Id].CPF[strcspn(Usuario[Id].CPF,"\n")] = '\0';
 
-
+    /*
     if(Id != 0)
     {
         for (int i = 0; i < Id ; i++)
@@ -30,6 +32,21 @@ int adicionar(int Id)
                 }
             }
         }
+    }
+    */
+
+    int tempCpf;
+
+    sscanf(Usuario[Id].CPF, "%d", &tempCpf);
+
+    if(localizar(tempCpf, Ainicio) == NULL)
+    {
+        printf("CPF nao encontrado!\n");
+    }
+    else
+    {
+        printf("CPF ja cadastrado \n");
+        return Id;
     }
 
     printf("Preencha as informacoes a seguir:\n");
@@ -50,12 +67,17 @@ int adicionar(int Id)
     fgets(Usuario[Id].email, 100, stdin);
     Usuario[Id].email[strcspn(Usuario[Id].email,"\n")] = '\0';
 
+
+    Aaux = novoNo(tempCpf, NumRegistro);
+    ABadicionar(Aaux,Ainicio);
+
+    LLadicionar(Usuario[Id].nome, NumRegistro);
+
     NumRegistro++;
     Id++;
     tamanho = Id;
     posicao = Id;
     return Id;
-    return 0;
 }
 
 void expand() // funcao para criar um novo espaco na memoria sem que
