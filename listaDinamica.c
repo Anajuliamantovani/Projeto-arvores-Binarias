@@ -68,7 +68,7 @@ int adicionar(int Id)
     Usuario[Id].email[strcspn(Usuario[Id].email,"\n")] = '\0';
 
 
-    Aaux = novoNo(tempCpf, NumRegistro);
+    Aaux = ABnovoNo(tempCpf, NumRegistro);
     ABadicionar(Aaux,Ainicio);
 
     LLadicionar(Usuario[Id].nome, NumRegistro);

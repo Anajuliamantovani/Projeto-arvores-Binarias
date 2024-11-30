@@ -12,8 +12,6 @@ int main(void)
 {
     int opcao;
 
-    printf("teste");
-
     printf("\n\t==========================");
     printf("\n\t|  O que deseja fazer ?  |");
     printf("\n\t==========================\n");
@@ -29,7 +27,8 @@ int main(void)
             break;
 
         case 2:
-            PrintAll(Id);
+            imprimir();
+            //PrintAll(Id);
             break;
 
         case 3:
@@ -47,4 +46,17 @@ int main(void)
 
     main();
     return 0;
+}
+
+
+void imprimir() {
+    char nome[80];
+    if(inicio != NULL) {
+        paraInicio();
+        while(corrente(&nome)) {
+            printf("%s",nome);
+            paraProximo();
+        }
+        printf("\n");
+    }
 }

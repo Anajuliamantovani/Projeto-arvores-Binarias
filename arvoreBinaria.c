@@ -5,7 +5,7 @@
 #include "listaDinamica.h"
 #include "arvoreBinaria.h"
 
-struct noArvore *novoNo(int CPF, int NumRegistro)
+struct noArvore *ABnovoNo(int CPF, int NumRegistro)
 {
     struct noArvore *p = malloc(sizeof(struct noArvore));
     if(!p) {

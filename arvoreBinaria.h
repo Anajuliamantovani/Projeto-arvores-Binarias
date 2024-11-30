@@ -18,4 +18,4 @@ extern struct noArvore *Aproximo;
 
 struct noArvore *localizar(int CPF, struct noArvore *Inicio);
 void ABadicionar(struct noArvore *Aux, struct noArvore *Inicio);
-struct noArvore *novoNo(int CPF, int NumRegistro);
+struct noArvore *ABnovoNo(int CPF, int NumRegistro);

@@ -64,3 +64,28 @@ void adicionarNoMeio() {
     novo->proximo = aux;
     anterior->proximo = novo;
 }
+
+void paraInicio()
+{
+    noCorrente = inicio;
+}
+
+bool corrente(char *nome[80])
+{
+    if(noCorrente == NULL) {
+        return false;
+    }
+    *nome = noCorrente->nome;
+    return true;
+}
+
+bool paraProximo()
+{
+    if(noCorrente == NULL) {
+        return false;
+    }
+    noCorrente = noCorrente->proximo;
+
+    return true;
+}
+
