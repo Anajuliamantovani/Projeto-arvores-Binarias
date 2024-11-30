@@ -12,6 +12,7 @@ int main(void)
 {
     int opcao;
 
+    printf("deu bom");
 
     printf("\n\t==========================");
     printf("\n\t|  O que deseja fazer ?  |");
