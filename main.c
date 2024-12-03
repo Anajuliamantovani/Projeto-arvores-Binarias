@@ -12,8 +12,6 @@ int main(void)
 {
     int opcao;
 
-    printf("TESTANDO");
-
     printf("\n\t==========================");
     printf("\n\t|  O que deseja fazer ?  |");
     printf("\n\t==========================\n");
@@ -22,7 +20,11 @@ int main(void)
     fgets(opcao02, 30, stdin);
     sscanf(opcao02, "%d", &opcao);
 
-    inicializar();
+    if (Id == 0)
+    {
+        inicializar();
+    }
+
 
     switch (opcao)
     {

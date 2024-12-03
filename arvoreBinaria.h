@@ -5,9 +5,9 @@
 
 struct noArvore
 {
+    struct noArvore *esquerda;
     int CPF;
     int NumRegistro;
-    struct noArvore *esquerda;
     struct noArvore *direita;
 };
 
@@ -17,9 +17,9 @@ extern struct noArvore *Aanterior;
 extern struct noArvore *Aproximo;
 
 
-struct noArvore *ABlocalizar(int CPF, struct noArvore *Inicio);
-void ABadicionar(struct noArvore *Aux, struct noArvore *Inicio);
-struct noArvore *ABnovoNo(int CPF, int NumRegistro);
+struct noArvore *ABlocalizar(int par_cpf, struct noArvore *par_inicio);
+void ABadicionar(struct noArvore *par_Aux, struct noArvore *par_Inicio);
+struct noArvore *ABnovoNo(int par_CPF, int par_NumRegistro);
 void inicializar();
 
 
