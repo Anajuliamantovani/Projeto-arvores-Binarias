@@ -12,6 +12,8 @@ int main(void)
 {
     int opcao;
 
+    printf("TESTANDO");
+
     printf("\n\t==========================");
     printf("\n\t|  O que deseja fazer ?  |");
     printf("\n\t==========================\n");
