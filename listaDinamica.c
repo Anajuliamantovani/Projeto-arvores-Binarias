@@ -11,6 +11,7 @@ int tamanho;
 int posicao;
 int NumRegistro;
 char tempCPF[30];
+int tempNRegistro;
 
 int adicionar(int Id)
 {
@@ -43,8 +44,8 @@ int adicionar(int Id)
     Usuario[Id].email[strcspn(Usuario[Id].email,"\n")] = '\0';
 
 
-    Aaux = ABnovoNo(tempCpf, NumRegistro);
-    ABadicionar(Aaux,Ainicio);
+    ABaux = ABnovoNo(tempCpf, NumRegistro);
+    ABadicionar(ABaux,ABinicio);
 
     LLadicionar(Usuario[Id].nome, NumRegistro);
 
@@ -90,18 +91,24 @@ void Escolher()
 
 void Excluir()
 {
-
+    if(procurarCpf(-1) == 0)
+    {
+        return;
+    }
+    ABexcluir(tempCPF);
+    LLexcluir(tempNRegistro);
 }
 
 void Procurar()
 {
-
-    int verificando = procurarCpf(-1);
-
-    if(verificando == 0)
+    if(procurarCpf(-1) == 0)
     {
         return;
     }
+
+    printarEscolha(tempNRegistro);
+
+    /*
     for (int x = 0; x < NumRegistro; x++)
     {
         if(strcmp(tempCPF, Usuario[x].CPF) == 0)
@@ -111,12 +118,13 @@ void Procurar()
 
         }
     }
+    */
 
 }
 
 void Relatorio()
 {
-    imprimir();
+    LLimprimir();
 }
 
 void Sair ()
@@ -171,9 +179,11 @@ int procurarCpf(int par_Id)
     if(par_Id != 0)
     {
 
-        Aaux = ABlocalizar(tempCpf, Ainicio);
+        ABaux = ABlocalizar(tempCpf, ABinicio);
 
-        if(Aaux == NULL)
+
+
+        if(ABaux == NULL)
         {
             printf("CPF nao encontrado!\n");
             return 0;
@@ -181,6 +191,7 @@ int procurarCpf(int par_Id)
         else
         {
             printf("CPF ja cadastrado \n");
+            tempNRegistro = ABaux->NumRegistro;
             return 1;
         }
     }

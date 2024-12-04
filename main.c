@@ -12,7 +12,7 @@ int main(void)
 {
     int opcao;
 
-    printf("teste");
+
 
     printf("\n\t==========================");
     printf("\n\t|  O que deseja fazer ?  |");
@@ -35,10 +35,10 @@ int main(void)
             break;
 
         case 2:
-            //PrintAll(Id);
             break;
 
         case 3:
+            Excluir();
             break;
 
         case 4:
