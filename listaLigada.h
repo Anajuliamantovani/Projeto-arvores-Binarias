@@ -16,12 +16,17 @@ extern struct noLigada *LLnoCorrente;
 
 struct noLigada *LLnovoNo(char par_nome[80], int par_NRegistro);
 void LLadicionar(char par_nome[80], int par_NRegistro);
-void adicionarNoInicio();
-void adicionarNoFinal();
-void adicionarNoMeio();
-void paraInicio();
-bool corrente(int *dado);
-bool paraProximo();
-void imprimir();
+void LLadicionarNoInicio();
+void LLadicionarNoFinal();
+void LLadicionarNoMeio();
+void LLparaInicio();
+bool LLcorrente(int *dado);
+bool LLparaProximo();
+void LLimprimir();
+
+void LLexcluir(int par_dado);
+void LLexcluirNoInicio();
+void LLexcluirNoFinal();
+void LLexcluirNoMeio();
 
 

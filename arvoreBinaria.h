@@ -11,15 +11,16 @@ struct noArvore
     struct noArvore *direita;
 };
 
-extern struct noArvore *Ainicio;
-extern struct noArvore *Aaux;
-extern struct noArvore *Aanterior;
-extern struct noArvore *Aproximo;
+extern struct noArvore *ABinicio;
+extern struct noArvore *ABaux;
+extern struct noArvore *ABanterior;
+extern struct noArvore *ABproximo;
 
 
 struct noArvore *ABlocalizar(int par_cpf, struct noArvore *par_inicio);
 void ABadicionar(struct noArvore *par_Aux, struct noArvore *par_Inicio);
 struct noArvore *ABnovoNo(int par_CPF, int par_NumRegistro);
 void inicializar();
+void ABexcluir(int dado);
 
 

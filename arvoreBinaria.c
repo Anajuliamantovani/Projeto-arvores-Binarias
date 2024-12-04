@@ -6,15 +6,15 @@
 #include "listaDinamica.h"
 #include "arvoreBinaria.h"
 
-struct noArvore *Ainicio;
-struct noArvore *Aaux;
-struct noArvore *Aanterior;
-struct noArvore *Aproximo;
+struct noArvore *ABinicio;
+struct noArvore *ABaux;
+struct noArvore *ABanterior;
+struct noArvore *ABproximo;
 
 
 void inicializar()
 {
-    Ainicio = NULL;
+    ABinicio = NULL;
     LLinicio = NULL;
 }
 
@@ -35,10 +35,10 @@ struct noArvore *ABnovoNo(int par_CPF, int par_NumRegistro)
 
 void ABadicionar(struct noArvore *par_Aux, struct noArvore *par_Inicio)
 {
-    if(Ainicio == NULL)
+    if(ABinicio == NULL)
     {
         //printf("Adicionando %d no inicio\n",par_Aux->CPF);
-        Ainicio = par_Aux;
+        ABinicio = par_Aux;
     }
     else
     {
@@ -73,40 +73,6 @@ void ABadicionar(struct noArvore *par_Aux, struct noArvore *par_Inicio)
     }
 }
 
-/*struct noArvore *ABlocalizar(int par_cpf, struct noArvore *par_inicio)
-{
-    if(par_inicio->CPF == par_cpf) {
-        printf("Achei %d\n", par_cpf);
-        return par_inicio;
-    }
-    else {
-        if(par_cpf > par_inicio->CPF) {
-            // procurar na direita
-            if(par_inicio->direita != NULL) {
-                Aanterior = par_inicio;
-                printf("Indo para a direita de %d\n", par_inicio->CPF);
-                return ABlocalizar(par_cpf , par_inicio->direita);
-            }
-            else {
-                printf("Nao achei %d!\n", par_cpf);
-                return NULL;
-            }
-        }
-        else {
-            // procurar na esquerda
-            if(par_inicio->esquerda != NULL) {
-                Aanterior = par_inicio;
-                printf("Indo para a esquerda de %d\n", par_inicio->CPF);
-                return ABlocalizar(par_cpf, par_inicio->esquerda);
-            }
-            else {
-                printf("Nao achei %d!\n", par_cpf);
-                return NULL;
-            }
-        }
-    }
-}*/
-
 struct noArvore *ABlocalizar(int par_cpf, struct noArvore *par_inicio)
 {
     if (par_inicio == NULL) {
@@ -127,6 +93,35 @@ struct noArvore *ABlocalizar(int par_cpf, struct noArvore *par_inicio)
         // procurar na esquerda
         //printf("Indo para a esquerda de %d\n", par_inicio->CPF);
         return ABlocalizar(par_cpf, par_inicio->esquerda);
+    }
+}
+
+void ABexcluir(int dado) {
+    if(ABinicio == NULL) {
+        return;
+    }
+    else {
+        ABaux = ABlocalizar(dado, ABinicio);
+        if(ABaux != NULL) {
+            if(ABaux == ABinicio) {
+                ABinicio = NULL;
+            }
+            else {
+                if(ABaux->CPF > ABanterior->CPF) {
+                    ABanterior->direita = NULL;
+                }
+                else {
+                    ABanterior->esquerda = NULL;
+                }
+            }
+            if(ABaux->esquerda != NULL) {
+                ABadicionar(ABaux->esquerda, ABinicio);
+            }
+            if(ABaux->direita != NULL) {
+                ABadicionar(ABaux->direita, ABinicio);
+            }
+            free(ABaux);
+        }
     }
 }
 

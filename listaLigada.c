@@ -37,7 +37,7 @@ void LLadicionar(char par_nome[80], int par_NRegistro)
         //novo->NRegistro < inicio->NRegistro
         //strcmp comparar duas string em ordem alfabetica
         if(strcmp(LLnovo->nome , LLinicio->nome) < 0) {
-            adicionarNoInicio();
+            LLadicionarNoInicio();
         }
         else {
             LLaux = LLinicio;
@@ -49,31 +49,31 @@ void LLadicionar(char par_nome[80], int par_NRegistro)
             }
 
             if(strcmp(LLnovo->nome , LLaux->nome) > 0) {
-                adicionarNoFinal();
+                LLadicionarNoFinal();
             }
             else {
-                adicionarNoMeio();
+                LLadicionarNoMeio();
             }
         }
     }
 }
 
-void adicionarNoInicio() {
+void LLadicionarNoInicio() {
     LLnovo->proximo = LLinicio;
     LLinicio = LLnovo;
 }
 
-void adicionarNoFinal() {
+void LLadicionarNoFinal() {
     LLaux->proximo = LLnovo;
 }
 
-void adicionarNoMeio() {
+void LLadicionarNoMeio() {
     LLnovo->proximo = LLaux;
     LLanterior->proximo = LLnovo;
 }
 
 
-bool corrente(int *dado) {
+bool LLcorrente(int *dado) {
     if(LLnoCorrente == NULL) {
         return false;
     }
@@ -82,7 +82,7 @@ bool corrente(int *dado) {
     return true;
 }
 
-bool paraProximo() {
+bool LLparaProximo() {
     if(LLnoCorrente == NULL) {
         return false;
     }
@@ -91,20 +91,68 @@ bool paraProximo() {
     return true;
 }
 
-void paraInicio() {
+void LLparaInicio() {
     LLnoCorrente = LLinicio;
 }
 
-void imprimir() {
+void LLimprimir() {
     int valor = 0;
     if(LLinicio != NULL) {
-        paraInicio();
-        while(corrente(&valor)) {
+        LLparaInicio();
+        while(LLcorrente(&valor)) {
             printarEscolha(valor);
-            paraProximo();
+            LLparaProximo();
         }
         printf("\n");
     }
+}
+
+void LLexcluir(int par_dado) {
+    if(LLinicio != NULL) {
+        if(par_dado == LLinicio->NRegistro) {
+            LLexcluirNoInicio();
+        }
+        else {
+            LLaux = LLinicio;
+            LLanterior = LLinicio;
+            while(LLaux->NRegistro != par_dado && LLaux->proximo != NULL) {
+                LLanterior = LLaux;
+                LLaux = LLaux->proximo;
+            }
+            if(LLaux->NRegistro == par_dado) {
+                if(LLaux->proximo == NULL) {
+                    LLexcluirNoFinal();
+                }
+                else {
+                    LLexcluirNoMeio();
+                }
+            }
+        }
+    }
+}
+
+void LLexcluirNoInicio() {
+    if(LLinicio->proximo == NULL) {
+        free(LLinicio);
+        LLinicio = NULL;
+    }
+    else {
+        LLaux = LLinicio;
+        LLinicio = LLinicio->proximo;
+        free(LLaux);
+    }
+}
+
+void LLexcluirNoFinal() {
+    LLanterior->proximo = NULL;
+    free(LLaux);
+}
+
+void LLexcluirNoMeio() {
+    LLproximo = LLaux->proximo;
+
+    LLanterior->proximo = LLproximo;
+    free(LLaux);
 }
 
 
