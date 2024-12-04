@@ -46,6 +46,7 @@ int main(void)
             break;
 
         case 5:
+            Relatorio();
             break;
 
         case 6:

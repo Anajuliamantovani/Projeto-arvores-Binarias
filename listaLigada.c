@@ -73,3 +73,38 @@ void adicionarNoMeio() {
 }
 
 
+bool corrente(int *dado) {
+    if(LLnoCorrente == NULL) {
+        return false;
+    }
+    *dado = LLnoCorrente->NRegistro;
+
+    return true;
+}
+
+bool paraProximo() {
+    if(LLnoCorrente == NULL) {
+        return false;
+    }
+    LLnoCorrente = LLnoCorrente->proximo;
+
+    return true;
+}
+
+void paraInicio() {
+    LLnoCorrente = LLinicio;
+}
+
+void imprimir() {
+    int valor = 0;
+    if(LLinicio != NULL) {
+        paraInicio();
+        while(corrente(&valor)) {
+            printarEscolha(valor);
+            paraProximo();
+        }
+        printf("\n");
+    }
+}
+
+

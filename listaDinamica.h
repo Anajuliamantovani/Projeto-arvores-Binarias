@@ -16,6 +16,7 @@ struct noLDinamica
 
 void Procurar();
 int procurarCpf(int par_Id);
+void Relatorio();
 
 typedef struct noLDinamica usuario;
 

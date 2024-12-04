@@ -116,7 +116,7 @@ void Procurar()
 
 void Relatorio()
 {
-
+    imprimir();
 }
 
 void Sair ()
