@@ -12,7 +12,7 @@ int main(void)
 {
     int opcao;
 
-    printf("teste");
+    //printf("teste");
 
     printf("\n\t==========================");
     printf("\n\t|  O que deseja fazer ?  |");
@@ -42,6 +42,7 @@ int main(void)
             break;
 
         case 4:
+            Procurar();
             break;
 
         case 5:

@@ -14,6 +14,9 @@ struct noLDinamica
     char email[80];
 };
 
+void Procurar();
+int procurarCpf(int par_Id);
+
 typedef struct noLDinamica usuario;
 
 

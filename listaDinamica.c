@@ -10,41 +10,19 @@ usuario *Usuario = NULL;
 int tamanho;
 int posicao;
 int NumRegistro;
+char tempCPF[30];
 
 int adicionar(int Id)
 {
     expand();
-    printf("CPF:");
-    fgets(Usuario[Id].CPF, 30, stdin);
-    Usuario[Id].CPF[strcspn(Usuario[Id].CPF,"\n")] = '\0';
+    int verificando = procurarCpf(Id);
+    if(verificando == 1)
+    {
+        return Id;
+    }
 
     int tempCpf = 0;
-   // printf("\n\n%d <-------", tempCpf);
-
     sscanf(Usuario[Id].CPF, "%d", &tempCpf);
-
-    //printf("\n\n%d <-------", tempCpf);
-
-    if(Id != 0)
-    {
-        //printf("\n\n%d <------\n\n",Aaux->CPF);
-        //printf("\n\n%d <------\n\n",Aaux->NumRegistro);
-
-        //printf("\n\n%s <------\n\n",LLinicio->nome);
-        //printf("\n\n%d <------\n\n",LLinicio->NRegistro);
-
-        Aaux = ABlocalizar(tempCpf, Ainicio);
-
-        if(Aaux == NULL)
-        {
-            printf("CPF nao encontrado!\n");
-        }
-        else
-        {
-            printf("CPF ja cadastrado \n");
-            return  Id;
-        }
-    }
 
     printf("Preencha as informacoes a seguir:\n");
 
@@ -118,6 +96,22 @@ void Excluir()
 void Procurar()
 {
 
+    int verificando = procurarCpf(-1);
+
+    if(verificando == 0)
+    {
+        return;
+    }
+    for (int x = 0; x < NumRegistro; x++)
+    {
+        if(strcmp(tempCPF, Usuario[x].CPF) == 0)
+        {
+
+           printarEscolha(x);
+
+        }
+    }
+
 }
 
 void Relatorio()
@@ -132,9 +126,7 @@ void Sair ()
 
 int printarEscolha(int Id)
 {
-    if(strcmp(Usuario[Id].CPF, " ") != 0)
 
-    {
         printf("\n");
         printf("Nome: %s\n", Usuario[Id].nome);
         printf("Endereco: %s\n", Usuario[Id].endereço);
@@ -142,7 +134,7 @@ int printarEscolha(int Id)
         printf("Telefone: %s\n", Usuario[Id].telefone);
         printf("E-mail: %s\n", Usuario[Id].email);
         printf("\n");
-    }
+
     return 0;
 }
 
@@ -153,5 +145,47 @@ int PrintAll(int id)
         printarEscolha(i);
     }
     return 0;
+}
+
+
+
+int procurarCpf(int par_Id)
+{
+
+    int tempCpf = 0;
+    printf("CPF:");
+
+    if(par_Id != -1)
+    {
+         fgets(Usuario[par_Id].CPF, 30, stdin);
+         Usuario[par_Id].CPF[strcspn(Usuario[par_Id].CPF,"\n")] = '\0';
+         sscanf(Usuario[par_Id].CPF, "%d", &tempCpf);
+    }
+    else
+    {
+        fgets(tempCPF, 30, stdin);
+        tempCPF[strcspn(tempCPF,"\n")] = '\0';
+        sscanf(tempCPF, "%d", &tempCpf);
+    }
+
+    if(par_Id != 0)
+    {
+
+        Aaux = ABlocalizar(tempCpf, Ainicio);
+
+        if(Aaux == NULL)
+        {
+            printf("CPF nao encontrado!\n");
+            return 0;
+        }
+        else
+        {
+            printf("CPF ja cadastrado \n");
+            return 1;
+        }
+    }
+
+    return 0;
+
 }
 
