@@ -27,11 +27,11 @@ int adicionar(int Id)
 
     if(Id != 0)
     {
-        printf("\n\n%d <------\n\n",Aaux->CPF);
-        printf("\n\n%d <------\n\n",Aaux->NumRegistro);
+        //printf("\n\n%d <------\n\n",Aaux->CPF);
+        //printf("\n\n%d <------\n\n",Aaux->NumRegistro);
 
-        printf("\n\n%s <------\n\n",LLinicio->nome);
-        printf("\n\n%d <------\n\n",LLinicio->NRegistro);
+        //printf("\n\n%s <------\n\n",LLinicio->nome);
+        //printf("\n\n%d <------\n\n",LLinicio->NRegistro);
 
         Aaux = ABlocalizar(tempCpf, Ainicio);
 
