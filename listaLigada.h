@@ -20,3 +20,8 @@ void adicionarNoInicio();
 void adicionarNoFinal();
 void adicionarNoMeio();
 void paraInicio();
+bool corrente(int *dado);
+bool paraProximo();
+void imprimir();
+
+
