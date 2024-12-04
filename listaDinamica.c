@@ -19,21 +19,20 @@ int adicionar(int Id)
     Usuario[Id].CPF[strcspn(Usuario[Id].CPF,"\n")] = '\0';
 
     int tempCpf = 0;
-    printf("\n\n%d <-------", tempCpf);
+   // printf("\n\n%d <-------", tempCpf);
 
     sscanf(Usuario[Id].CPF, "%d", &tempCpf);
 
-    printf("\n\n%d <-------", tempCpf);
+    //printf("\n\n%d <-------", tempCpf);
 
     if(Id != 0)
     {
-        printf("%d",Aaux->CPF);
-        printf("%d",Aaux->NumRegistro);
+        printf("\n\n%d <------\n\n",Aaux->CPF);
+        printf("\n\n%d <------\n\n",Aaux->NumRegistro);
 
-        if (Ainicio == NULL)
-        {
-            printf("\n\n\nesta vindo vazio<----------\n\n\n");
-        }
+        printf("\n\n%s <------\n\n",LLinicio->nome);
+        printf("\n\n%d <------\n\n",LLinicio->NRegistro);
+
         Aaux = ABlocalizar(tempCpf, Ainicio);
 
         if(Aaux == NULL)
@@ -69,7 +68,7 @@ int adicionar(int Id)
     Aaux = ABnovoNo(tempCpf, NumRegistro);
     ABadicionar(Aaux,Ainicio);
 
-    //LLadicionar(Usuario[Id].nome, NumRegistro);
+    LLadicionar(Usuario[Id].nome, NumRegistro);
 
     NumRegistro++;
     Id++;

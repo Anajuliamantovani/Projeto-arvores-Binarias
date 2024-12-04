@@ -15,6 +15,7 @@ struct noArvore *Aproximo;
 void inicializar()
 {
     Ainicio = NULL;
+    LLinicio = NULL;
 }
 
 struct noArvore *ABnovoNo(int par_CPF, int par_NumRegistro)
