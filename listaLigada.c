@@ -5,43 +5,50 @@
 #include "listaDinamica.h"
 #include "arvoreBinaria.h"
 
-struct noLigada *novoNo(char nome[80], int NRegistro) {
+ struct noLigada *LLinicio;
+ struct noLigada *LLaux;
+ struct noLigada *LLanterior;
+ struct noLigada *LLproximo;
+ struct noLigada *LLnovo;
+ struct noLigada *LLnoCorrente;
+
+struct noLigada *LLnovoNo(char par_nome[80], int par_NRegistro) {
     struct noLigada *p = malloc(sizeof(struct noLigada));
     if(!p) {
         printf("Erro na alocacao de memoria!\n");
         exit(EXIT_FAILURE);
     }
     //p->nome = nome;
-    strcpy(p->nome, nome);
-    p->NRegistro = NRegistro;
+    strcpy(p->nome, par_nome);
+    p->NRegistro = par_NRegistro;
     p->proximo = NULL;
 
     return p;
 }
 
-void LLadicionar(char nome[80], int NRegistro)
+void LLadicionar(char par_nome[80], int par_NRegistro)
 {
-    novo = novoNo(nome, NRegistro);
+    LLnovo = LLnovoNo(par_nome, par_NRegistro);
 
-    if(inicio == NULL) {
-        inicio = novo;
+    if(LLinicio == NULL) {
+        LLinicio = LLnovo;
     }
     else {
         //novo->NRegistro < inicio->NRegistro
         //strcmp comparar duas string em ordem alfabetica
-        if(strcmp(novo->nome , inicio->nome) < 0) {
+        if(strcmp(LLnovo->nome , LLinicio->nome) < 0) {
             adicionarNoInicio();
         }
         else {
-            aux = inicio;
-            anterior = inicio;
+            LLaux = LLinicio;
+            LLanterior = LLinicio;
 
-            while(strcmp(aux->nome , novo->nome) < 0 && aux->proximo != NULL) {
-                anterior = aux;
-                aux = aux->proximo;
+            while(strcmp(LLaux->nome , LLnovo->nome) < 0 && LLaux->proximo != NULL) {
+                LLanterior = LLaux;
+                LLaux = LLaux->proximo;
             }
 
-            if(strcmp(novo->nome , aux->nome) > 0) {
+            if(strcmp(LLnovo->nome , LLaux->nome) > 0) {
                 adicionarNoFinal();
             }
             else {
@@ -52,15 +59,17 @@ void LLadicionar(char nome[80], int NRegistro)
 }
 
 void adicionarNoInicio() {
-    novo->proximo = inicio;
-    inicio = novo;
+    LLnovo->proximo = LLinicio;
+    LLinicio = LLnovo;
 }
 
 void adicionarNoFinal() {
-    aux->proximo = novo;
+    LLaux->proximo = LLnovo;
 }
 
 void adicionarNoMeio() {
-    novo->proximo = aux;
-    anterior->proximo = novo;
+    LLnovo->proximo = LLaux;
+    LLanterior->proximo = LLnovo;
 }
+
+

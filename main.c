@@ -12,8 +12,6 @@ int main(void)
 {
     int opcao;
 
-    printf("deu bom");
-
     printf("\n\t==========================");
     printf("\n\t|  O que deseja fazer ?  |");
     printf("\n\t==========================\n");
@@ -22,6 +20,12 @@ int main(void)
     fgets(opcao02, 30, stdin);
     sscanf(opcao02, "%d", &opcao);
 
+    if (Id == 0)
+    {
+        inicializar();
+    }
+
+
     switch (opcao)
     {
         case 1:
@@ -29,7 +33,7 @@ int main(void)
             break;
 
         case 2:
-            PrintAll(Id);
+            //PrintAll(Id);
             break;
 
         case 3:
@@ -48,3 +52,5 @@ int main(void)
     main();
     return 0;
 }
+
+
