@@ -90,6 +90,85 @@ void Alterar()
 
 }
 
+int edit(int Id)
+{
+    char cpfdigitado[30];
+    int boleano = 0;
+    int escolha;
+    char string[30];
+    char opcao = 'z';
+
+    printf("Digite o cpf:");
+    fgets(cpfdigitado, 30, stdin);
+    cpfdigitado[strcspn(cpfdigitado,"\n")] = '\0';
+
+    for (int i = 0; i < Id; ++i)
+    {
+        if(strcmp(Usuario[i].CPF, cpfdigitado) == 0)
+        {
+            while (strcmp(string, "\n") != 0)
+            {
+                boleano = 1;
+                printf("\n\nUsuario encontrado!\n");
+                printf("O que deseja alterar?\n");
+                printf("1 - Nome: %s\n", Usuario[i].Name);
+                printf("2 - Endereco: %s\n", Usuario[i].Adress);
+                printf("3 - CPF: %s\n", Usuario[i].CPF);
+                printf("4 - Telefone: %s\n", Usuario[i].Telefone);
+                printf("5 - E-mail: %s\n", Usuario[i].email);
+                printf("Pressione 'Enter' Para sair\n\n");
+
+                fgets(string, 30, stdin);
+                opcao = string[0];
+
+                switch (opcao)
+                {
+                    case '1':
+                        printf("Novo nome: ");
+                        fgets(Usuario[i].Name, 80, stdin);
+                        Usuario[i].Name[strcspn(Usuario[i].Name,"\n")] = '\0';
+                        break;
+
+                    case '2':
+                        printf("Novo Endereco: ");
+                        fgets(Usuario[i].Adress, 80, stdin);
+                        Usuario[i].Adress[strcspn(Usuario[i].Adress,"\n")] = '\0';
+                        break;
+
+                    case '3':
+                        printf("Novo CPF: ");
+                        fgets(Usuario[i].CPF, 80, stdin);
+                        Usuario[i].CPF[strcspn(Usuario[i].CPF,"\n")] = '\0';
+                        break;
+
+                    case '4':
+                        printf("Novo Telefone: ");
+                        fgets(Usuario[i].Telefone, 80, stdin);
+                        Usuario[i].Telefone[strcspn(Usuario[i].Telefone,"\n")] = '\0';
+                        break;
+
+                    case '5':
+                        printf("Novo E-mail: ");
+                        fgets(Usuario[i].email, 80, stdin);
+                        Usuario[i].email[strcspn(Usuario[i].email,"\n")] = '\0';
+                        break;
+                }
+
+                if(strcmp(string, "\n") == 0)
+                {
+                    return 0;
+                }
+            }
+        }
+    }
+
+    if(boleano == 0)
+    {
+        printf("cpf nao encontrado:");
+    }
+
+    return 0;
+}
 void Escolher()
 {
 
