@@ -12,6 +12,8 @@ int main(void)
 {
     int opcao;
 
+    //printf("teste");
+
     printf("\n\t==========================");
     printf("\n\t|  O que deseja fazer ?  |");
     printf("\n\t==========================\n");
@@ -40,6 +42,7 @@ int main(void)
             break;
 
         case 4:
+            Procurar();
             break;
 
         case 5:
