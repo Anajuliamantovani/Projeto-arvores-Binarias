@@ -22,5 +22,6 @@ void ABadicionar(struct noArvore *par_Aux, struct noArvore *par_Inicio);
 struct noArvore *ABnovoNo(int par_CPF, int par_NumRegistro);
 void inicializar();
 void ABexcluir(int dado);
+void ABfinalizar(struct noArvore *par_quem);
 
 

@@ -29,5 +29,6 @@ void LLexcluirNoInicio();
 void LLexcluirNoFinal();
 void LLexcluirNoMeio();
 char *pMais(char *str);
+void LLfinalizar(struct noLigada *par_quem);
 
 

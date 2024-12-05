@@ -178,3 +178,13 @@ void LLexcluirNoMeio() {
 }
 
 
+void LLfinalizar(struct noLigada *par_quem)
+{
+    if(par_quem->proximo != NULL) {
+        LLfinalizar(par_quem->proximo);
+    }
+    free(par_quem);
+}
+
+
+
