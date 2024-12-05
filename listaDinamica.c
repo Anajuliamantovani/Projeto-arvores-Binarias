@@ -81,6 +81,12 @@ void expand() // funcao para criar um novo espaco na memoria sem que
 
 void Alterar()
 {
+    if(procurarCpf(-1) == 0)
+    {
+        return;
+    }
+
+    
 
 }
 
