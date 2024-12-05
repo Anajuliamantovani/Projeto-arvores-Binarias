@@ -18,6 +18,8 @@ void Procurar();
 int procurarCpf(int par_Id);
 void Relatorio();
 void Excluir();
+int edit(int Id);
+void Alterar();
 
 typedef struct noLDinamica usuario;
 

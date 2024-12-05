@@ -86,93 +86,68 @@ void Alterar()
         return;
     }
 
-    
+    edit(tempNRegistro);
 
 }
 
 int edit(int Id)
 {
-    char cpfdigitado[30];
-    int boleano = 0;
-    int escolha;
+
+
     char string[30];
     char opcao = 'z';
 
-    printf("Digite o cpf:");
-    fgets(cpfdigitado, 30, stdin);
-    cpfdigitado[strcspn(cpfdigitado,"\n")] = '\0';
-
-    for (int i = 0; i < Id; ++i)
+    while (strcmp(string, "\n") != 0)
     {
-        if(strcmp(Usuario[i].CPF, cpfdigitado) == 0)
+
+        printf("\n\nUsuario encontrado!\n");
+        printf("O que deseja alterar?\n");
+        printf("1 - Nome: %s\n", Usuario[Id].nome);
+        printf("2 - Endereco: %s\n", Usuario[Id].endereço);
+        printf("3 - Telefone: %s\n", Usuario[Id].telefone);
+        printf("4 - E-mail: %s\n", Usuario[Id].email);
+        printf("Pressione 'Enter' Para sair\n\n");
+
+        fgets(string, 30, stdin);
+        opcao = string[0];
+
+        switch (opcao)
         {
-            while (strcmp(string, "\n") != 0)
-            {
-                boleano = 1;
-                printf("\n\nUsuario encontrado!\n");
-                printf("O que deseja alterar?\n");
-                printf("1 - Nome: %s\n", Usuario[i].Name);
-                printf("2 - Endereco: %s\n", Usuario[i].Adress);
-                printf("3 - CPF: %s\n", Usuario[i].CPF);
-                printf("4 - Telefone: %s\n", Usuario[i].Telefone);
-                printf("5 - E-mail: %s\n", Usuario[i].email);
-                printf("Pressione 'Enter' Para sair\n\n");
+        case '1':
+            printf("Novo nome: ");
+            fgets(Usuario[Id].nome, 80, stdin);
+            Usuario[Id].nome[strcspn(Usuario[Id].nome,"\n")] = '\0';
+            LLexcluir(tempNRegistro);
+            LLadicionar(Usuario[Id].nome, tempNRegistro);
 
-                fgets(string, 30, stdin);
-                opcao = string[0];
+            break;
+        case '2':
+            printf("Novo Endereco: ");
+            fgets(Usuario[Id].endereço, 80, stdin);
+            Usuario[Id].endereço[strcspn(Usuario[Id].endereço,"\n")] = '\0';
 
-                switch (opcao)
-                {
-                    case '1':
-                        printf("Novo nome: ");
-                        fgets(Usuario[i].Name, 80, stdin);
-                        Usuario[i].Name[strcspn(Usuario[i].Name,"\n")] = '\0';
-                        break;
-
-                    case '2':
-                        printf("Novo Endereco: ");
-                        fgets(Usuario[i].Adress, 80, stdin);
-                        Usuario[i].Adress[strcspn(Usuario[i].Adress,"\n")] = '\0';
-                        break;
-
-                    case '3':
-                        printf("Novo CPF: ");
-                        fgets(Usuario[i].CPF, 80, stdin);
-                        Usuario[i].CPF[strcspn(Usuario[i].CPF,"\n")] = '\0';
-                        break;
-
-                    case '4':
-                        printf("Novo Telefone: ");
-                        fgets(Usuario[i].Telefone, 80, stdin);
-                        Usuario[i].Telefone[strcspn(Usuario[i].Telefone,"\n")] = '\0';
-                        break;
-
-                    case '5':
-                        printf("Novo E-mail: ");
-                        fgets(Usuario[i].email, 80, stdin);
-                        Usuario[i].email[strcspn(Usuario[i].email,"\n")] = '\0';
-                        break;
-                }
-
-                if(strcmp(string, "\n") == 0)
-                {
-                    return 0;
-                }
-            }
+            break;
+        case '3':
+            printf("Novo Telefone: ");
+            fgets(Usuario[Id].telefone, 80, stdin);
+            Usuario[Id].telefone[strcspn(Usuario[Id].telefone,"\n")] = '\0';
+            break;
+        case '4':
+            printf("Novo E-mail: ");
+            fgets(Usuario[Id].email, 80, stdin);
+            Usuario[Id].email[strcspn(Usuario[Id].email,"\n")] = '\0';
+            break;
         }
-    }
 
-    if(boleano == 0)
-    {
-        printf("cpf nao encontrado:");
+        if(strcmp(string, "\n") == 0)
+        {
+            return 0;
+        }
     }
 
     return 0;
 }
-void Escolher()
-{
 
-}
 
 void Excluir()
 {

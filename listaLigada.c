@@ -4,6 +4,7 @@
 #include "listaLigada.h"
 #include "listaDinamica.h"
 #include "arvoreBinaria.h"
+#include <ctype.h>
 
  struct noLigada *LLinicio;
  struct noLigada *LLaux;
@@ -36,19 +37,21 @@ void LLadicionar(char par_nome[80], int par_NRegistro)
     else {
         //novo->NRegistro < inicio->NRegistro
         //strcmp comparar duas string em ordem alfabetica
-        if(strcmp(LLnovo->nome , LLinicio->nome) < 0) {
+        char teste[30];
+
+        if(strcmp(pMais(LLnovo->nome) , pMais(LLinicio->nome)) < 0) {
             LLadicionarNoInicio();
         }
         else {
             LLaux = LLinicio;
             LLanterior = LLinicio;
 
-            while(strcmp(LLaux->nome , LLnovo->nome) < 0 && LLaux->proximo != NULL) {
+            while(strcmp(pMais(LLaux->nome) , pMais(LLnovo->nome)) < 0 && LLaux->proximo != NULL) {
                 LLanterior = LLaux;
                 LLaux = LLaux->proximo;
             }
 
-            if(strcmp(LLnovo->nome , LLaux->nome) > 0) {
+            if(strcmp(pMais(LLnovo->nome) , pMais(LLaux->nome)) > 0) {
                 LLadicionarNoFinal();
             }
             else {
@@ -56,6 +59,25 @@ void LLadicionar(char par_nome[80], int par_NRegistro)
             }
         }
     }
+}
+
+char *pMais(char *str)
+{
+    int tam = strlen(str);
+    char *nova_string = (char *)malloc(tam + 1); // Alocar memória para a nova string
+
+    if (nova_string == NULL) {
+        // Tratamento de erro: falha na alocação de memória
+        perror("Erro ao alocar memória");
+        return NULL;
+    }
+
+    for (int i = 0; i < tam; i++) {
+        nova_string[i] = toupper(str[i]);
+    }
+    nova_string[tam] = '\0'; // Adiciona o caractere nulo no final da string
+
+    return nova_string;
 }
 
 void LLadicionarNoInicio() {

@@ -28,5 +28,6 @@ void LLexcluir(int par_dado);
 void LLexcluirNoInicio();
 void LLexcluirNoFinal();
 void LLexcluirNoMeio();
+char *pMais(char *str);
 
 

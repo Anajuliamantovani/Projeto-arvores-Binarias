@@ -35,6 +35,7 @@ int main(void)
             break;
 
         case 2:
+            Alterar();
             break;
 
         case 3:
