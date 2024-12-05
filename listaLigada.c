@@ -35,7 +35,6 @@ void LLadicionar(char par_nome[80], int par_NRegistro)
         LLinicio = LLnovo;
     }
     else {
-        //novo->NRegistro < inicio->NRegistro
         //strcmp comparar duas string em ordem alfabetica
         char teste[30];
 
