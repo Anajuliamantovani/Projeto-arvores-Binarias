@@ -51,6 +51,7 @@ int main(void)
             break;
 
         case 6:
+            Sair();
             return 0;
     }
 

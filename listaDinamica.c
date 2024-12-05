@@ -168,18 +168,6 @@ void Procurar()
 
     printarEscolha(tempNRegistro);
 
-    /*
-    for (int x = 0; x < NumRegistro; x++)
-    {
-        if(strcmp(tempCPF, Usuario[x].CPF) == 0)
-        {
-
-           printarEscolha(x);
-
-        }
-    }
-    */
-
 }
 
 void Relatorio()
@@ -187,8 +175,12 @@ void Relatorio()
     LLimprimir();
 }
 
-void Sair ()
+void Sair()
 {
+    ABfinalizar(ABinicio);
+    LLfinalizar(LLinicio);
+    LDdestroy();
+
 
 }
 
@@ -258,5 +250,10 @@ int procurarCpf(int par_Id)
 
     return 0;
 
+}
+
+void LDdestroy()
+{
+    free(Usuario);
 }
 

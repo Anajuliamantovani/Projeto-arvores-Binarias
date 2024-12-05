@@ -20,6 +20,8 @@ void Relatorio();
 void Excluir();
 int edit(int Id);
 void Alterar();
+void LDdestroy();
+void Sair();
 
 typedef struct noLDinamica usuario;
 

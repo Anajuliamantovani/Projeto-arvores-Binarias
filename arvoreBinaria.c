@@ -125,4 +125,20 @@ void ABexcluir(int dado) {
     }
 }
 
+void ABfinalizar(struct noArvore *par_quem)
+{
+    if(par_quem == NULL) {
+        return;
+    }
+    if(par_quem->esquerda != NULL) {
+
+        ABfinalizar(par_quem->esquerda);
+    }
+    if(par_quem->direita != NULL) {
+
+        ABfinalizar(par_quem->direita);
+    }
+    printf("Excluindo %d...\n",par_quem->CPF);
+    free(par_quem);
+}
 
