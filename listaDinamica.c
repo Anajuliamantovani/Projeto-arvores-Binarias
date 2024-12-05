@@ -155,7 +155,9 @@ void Excluir()
     {
         return;
     }
-    ABexcluir(tempCPF);
+    int tempInteiroCPF;
+    sscanf(tempCPF, "%d", &tempInteiroCPF);
+    ABexcluir(tempInteiroCPF);
     LLexcluir(tempNRegistro);
 }
 
