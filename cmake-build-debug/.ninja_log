@@ -1,0 +1,6 @@
+# ninja log v5
+3	162	7550840445662643	CMakeFiles/Projeto_arvores_Binarias.dir/main.c.obj	3b0c84f113579395
+20	185	7550840445872629	CMakeFiles/Projeto_arvores_Binarias.dir/arvoreBinaria.c.obj	1027ca34f4f1be08
+9	185	7550840445892640	CMakeFiles/Projeto_arvores_Binarias.dir/listaLigada.c.obj	2a80abb24d57efaa
+14	210	7550840446182681	CMakeFiles/Projeto_arvores_Binarias.dir/listaDinamica.c.obj	a4f71b1e4b6509eb
+210	377	7550840447813219	Projeto_arvores_Binarias.exe	494b4d1ed4f52a63

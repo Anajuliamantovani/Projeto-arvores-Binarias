@@ -1,0 +1,3 @@
+C:/Users/JoaoV/Desktop/Nava/Projeto-arvores-Binarias/cmake-build-debug/CMakeFiles/Projeto_arvores_Binarias.dir
+C:/Users/JoaoV/Desktop/Nava/Projeto-arvores-Binarias/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/JoaoV/Desktop/Nava/Projeto-arvores-Binarias/cmake-build-debug/CMakeFiles/rebuild_cache.dir
