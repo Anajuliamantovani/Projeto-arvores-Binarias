@@ -12,7 +12,7 @@ int main(void)
 {
     int opcao;
 
-
+    printf("testando");
 
     printf("\n\t==========================");
     printf("\n\t|  O que deseja fazer ?  |");
@@ -35,6 +35,7 @@ int main(void)
             break;
 
         case 2:
+            Alterar();
             break;
 
         case 3:

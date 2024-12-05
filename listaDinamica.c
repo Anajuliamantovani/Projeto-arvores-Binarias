@@ -81,13 +81,73 @@ void expand() // funcao para criar um novo espaco na memoria sem que
 
 void Alterar()
 {
+    if(procurarCpf(-1) == 0)
+    {
+        return;
+    }
+
+    edit(tempNRegistro);
 
 }
 
-void Escolher()
+int edit(int Id)
 {
 
+
+    char string[30];
+    char opcao = 'z';
+
+    while (strcmp(string, "\n") != 0)
+    {
+
+        printf("\n\nUsuario encontrado!\n");
+        printf("O que deseja alterar?\n");
+        printf("1 - Nome: %s\n", Usuario[Id].nome);
+        printf("2 - Endereco: %s\n", Usuario[Id].endereço);
+        printf("3 - Telefone: %s\n", Usuario[Id].telefone);
+        printf("4 - E-mail: %s\n", Usuario[Id].email);
+        printf("Pressione 'Enter' Para sair\n\n");
+
+        fgets(string, 30, stdin);
+        opcao = string[0];
+
+        switch (opcao)
+        {
+        case '1':
+            printf("Novo nome: ");
+            fgets(Usuario[Id].nome, 80, stdin);
+            Usuario[Id].nome[strcspn(Usuario[Id].nome,"\n")] = '\0';
+            LLexcluir(tempNRegistro);
+            LLadicionar(Usuario[Id].nome, tempNRegistro);
+
+            break;
+        case '2':
+            printf("Novo Endereco: ");
+            fgets(Usuario[Id].endereço, 80, stdin);
+            Usuario[Id].endereço[strcspn(Usuario[Id].endereço,"\n")] = '\0';
+
+            break;
+        case '3':
+            printf("Novo Telefone: ");
+            fgets(Usuario[Id].telefone, 80, stdin);
+            Usuario[Id].telefone[strcspn(Usuario[Id].telefone,"\n")] = '\0';
+            break;
+        case '4':
+            printf("Novo E-mail: ");
+            fgets(Usuario[Id].email, 80, stdin);
+            Usuario[Id].email[strcspn(Usuario[Id].email,"\n")] = '\0';
+            break;
+        }
+
+        if(strcmp(string, "\n") == 0)
+        {
+            return 0;
+        }
+    }
+
+    return 0;
 }
+
 
 void Excluir()
 {
