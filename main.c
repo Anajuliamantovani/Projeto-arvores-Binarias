@@ -12,13 +12,11 @@ int main(void)
 {
     int opcao;
 
-    printf("testando");
-
     printf("\n\t==========================");
     printf("\n\t|  O que deseja fazer ?  |");
     printf("\n\t==========================\n");
-
-    printf("\t1. Adicionar\t2. Alterar\n\t3. Excluir\t\t4. Procurar\n\t5. Relatório\t6. Sair\n");
+    printf("\t1. Adicionar\t2. Alterar\n\t3. Excluir\t4. Procurar\n\t5. Relatorio\t6. Sair \02\n");
+    printf(" \t===========================\n");
     fgets(opcao02, 30, stdin);
     sscanf(opcao02, "%d", &opcao);
 
@@ -26,7 +24,6 @@ int main(void)
     {
         inicializar();
     }
-
 
     switch (opcao)
     {

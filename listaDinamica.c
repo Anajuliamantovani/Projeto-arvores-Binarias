@@ -85,29 +85,25 @@ void Alterar()
     {
         return;
     }
-
     edit(tempNRegistro);
-
 }
 
 int edit(int Id)
 {
-
-
     char string[30];
     char opcao = 'z';
 
     while (strcmp(string, "\n") != 0)
     {
-
-        printf("\n\nUsuario encontrado!\n");
-        printf("O que deseja alterar?\n");
-        printf("1 - Nome: %s\n", Usuario[Id].nome);
-        printf("2 - Endereco: %s\n", Usuario[Id].endereço);
-        printf("3 - Telefone: %s\n", Usuario[Id].telefone);
-        printf("4 - E-mail: %s\n", Usuario[Id].email);
-        printf("Pressione 'Enter' Para sair\n\n");
-
+        printf("\n\t=========================================");
+        printf("\n\t=\t O que deseja alterar? \t\t=");
+        printf("\n\t=========================================\n");
+        printf("\t1 - Nome: %s\n", Usuario[Id].nome);
+        printf("\t2 - Endereco: %s\n", Usuario[Id].endereço);
+        printf("\t3 - Telefone: %s\n", Usuario[Id].telefone);
+        printf("\t4 - E-mail: %s\n", Usuario[Id].email);
+        printf("\n\tPressione 'Enter' Para sair");
+        printf("\n\t=========================================\n");
         fgets(string, 30, stdin);
         opcao = string[0];
 
@@ -144,10 +140,8 @@ int edit(int Id)
             return 0;
         }
     }
-
     return 0;
 }
-
 
 void Excluir()
 {
@@ -155,7 +149,8 @@ void Excluir()
     {
         return;
     }
-    int tempInteiroCPF;
+    int tempInteiroCPF = 0;
+    printf("\n\tUsuario deletado com sucesso!\n");
     sscanf(tempCPF, "%d", &tempInteiroCPF);
     ABexcluir(tempInteiroCPF);
     LLexcluir(tempNRegistro);
@@ -167,9 +162,7 @@ void Procurar()
     {
         return;
     }
-
     printarEscolha(tempNRegistro);
-
 }
 
 void Relatorio()
@@ -182,38 +175,22 @@ void Sair()
     ABfinalizar(ABinicio);
     LLfinalizar(LLinicio);
     LDdestroy();
-
-
 }
 
 int printarEscolha(int Id)
 {
-
-        printf("\n");
-        printf("Nome: %s\n", Usuario[Id].nome);
-        printf("Endereco: %s\n", Usuario[Id].endereço);
-        printf("CPF: %s\n", Usuario[Id].CPF);
-        printf("Telefone: %s\n", Usuario[Id].telefone);
-        printf("E-mail: %s\n", Usuario[Id].email);
-        printf("\n");
-
+    printf("\n\t=========================================\n");
+    printf("\tNome: %s\n", Usuario[Id].nome);
+    printf("\tEndereco: %s\n", Usuario[Id].endereço);
+    printf("\tCPF: %s\n", Usuario[Id].CPF);
+    printf("\tTelefone: %s\n", Usuario[Id].telefone);
+    printf("\tE-mail: %s\n", Usuario[Id].email);
+    printf("\t=========================================\n\n");
     return 0;
 }
-
-int PrintAll(int id)
-{
-    for (int i = 0; i < id ; ++i)
-    {
-        printarEscolha(i);
-    }
-    return 0;
-}
-
-
 
 int procurarCpf(int par_Id)
 {
-
     int tempCpf = 0;
     printf("CPF:");
 
@@ -232,11 +209,7 @@ int procurarCpf(int par_Id)
 
     if(par_Id != 0)
     {
-
         ABaux = ABlocalizar(tempCpf, ABinicio);
-
-
-
         if(ABaux == NULL)
         {
             printf("CPF nao encontrado!\n");
@@ -244,14 +217,12 @@ int procurarCpf(int par_Id)
         }
         else
         {
-            printf("CPF ja cadastrado \n");
+            printf("CPF ja cadastrado!\n");
             tempNRegistro = ABaux->NumRegistro;
             return 1;
         }
     }
-
     return 0;
-
 }
 
 void LDdestroy()
